@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_inscripciones">
+
+    <fragment
+        android:id="@+id/nav_inscripciones"
+        android:name="com.ulp.instituto.ui.inscripciones.InscripcionesFragment"
+        android:label="Inscripciones"
+        tools:layout="@layout/fragment_inscripciones" >
+        <action
+            android:id="@+id/action_nav_inscripciones_to_nav_calificaciones"
+            app:destination="@id/nav_calificaciones" />
+        <action
+            android:id="@+id/action_nav_inscripciones_to_nav_perfil"
+            app:destination="@id/nav_perfil" />
+        <action
+            android:id="@+id/action_nav_inscripciones_to_nav_logout"
+            app:destination="@id/nav_logout" />
+        <action
+            android:id="@+id/action_nav_inscripciones_to_nav_pagos"
+            app:destination="@id/nav_pagos" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_calificaciones"
+        android:name="com.ulp.instituto.ui.calificaciones.CalificacionesFragment"
+        android:label="Calificaciones"
+        tools:layout="@layout/fragment_calificaciones" />
+
+    <fragment
+        android:id="@+id/nav_pagos"
+        android:name="com.ulp.instituto.ui.pagos.PagosFragment"
+        android:label="Pagos"
+        tools:layout="@layout/fragment_pagos" />
+
+    <fragment
+        android:id="@+id/nav_perfil"
+        android:name="com.ulp.instituto.ui.perfil.PerfilFragment"
+        android:label="Perfil"
+        tools:layout="@layout/fragment_perfil" >
+        <action
+            android:id="@+id/action_nav_perfil_to_nav_inscripciones"
+            app:destination="@id/nav_inscripciones" />
+        <action
+            android:id="@+id/action_nav_perfil_to_cambioClave2"
+            app:destination="@id/cambioClave" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.ulp.instituto.ui.logout.LogoutFragment"
+        android:label="Logout"
+        tools:layout="@layout/fragment_logout" />
+    <fragment
+        android:id="@+id/cambioClave"
+        android:name="com.ulp.instituto.ui.perfil.CambioClave"
+        android:label="fragment_cambio_clave"
+        tools:layout="@layout/fragment_cambio_clave" >
+        <action
+            android:id="@+id/action_cambioClave_to_nav_perfil"
+            app:destination="@id/nav_perfil" />
+    </fragment>
+
+
+</navigation>

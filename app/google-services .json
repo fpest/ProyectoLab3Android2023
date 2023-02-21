@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "390847528135",
+    "project_id": "institutoesac-ac54a",
+    "storage_bucket": "institutoesac-ac54a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390847528135:android:775f01ba570030c5e8d2e2",
+        "android_client_info": {
+          "package_name": "com.ulp.instituto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "390847528135-eb6uec70pgqdtkj50gmronb6g2thii52.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEqO_YNsIr-cczuoqAv_oFz7YcjM4tE34"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "390847528135-eb6uec70pgqdtkj50gmronb6g2thii52.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
