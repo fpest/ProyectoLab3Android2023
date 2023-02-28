@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/nav_inscripciones"
         android:name="com.ulp.instituto.ui.inscripciones.InscripcionesFragment"
-        android:label="Inscripciones"
+        android:label="Materias"
         tools:layout="@layout/fragment_inscripciones" >
         <action
             android:id="@+id/action_nav_inscripciones_to_nav_calificaciones"
@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_nav_inscripciones_to_nav_pagos"
             app:destination="@id/nav_pagos" />
+        <action
+            android:id="@+id/action_nav_inscripciones_to_carrerasFragment"
+            app:destination="@id/carrerasFragment" />
     </fragment>
 
     <fragment
@@ -57,12 +60,17 @@
     <fragment
         android:id="@+id/cambioClave"
         android:name="com.ulp.instituto.ui.perfil.CambioClave"
-        android:label="fragment_cambio_clave"
+        android:label="Cambio de Clave"
         tools:layout="@layout/fragment_cambio_clave" >
         <action
             android:id="@+id/action_cambioClave_to_nav_perfil"
             app:destination="@id/nav_perfil" />
     </fragment>
+    <fragment
+        android:id="@+id/carrerasFragment"
+        android:name="com.ulp.instituto.ui.carreras.CarrerasFragment"
+        android:label="Carreras"
+        tools:layout="@layout/fragment_carreras" />
 
 
 </navigation>

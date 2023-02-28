@@ -2,9 +2,13 @@ package com.ulp.instituto.ui.inscripciones;
 
 import static com.ulp.instituto.request.Token.ObtenerToken;
 
+import android.app.AlertDialog;
 import android.app.Application;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -15,8 +19,10 @@ import androidx.lifecycle.ViewModel;
 
 import com.ulp.instituto.modelo.Materia;
 import com.ulp.instituto.modelo.MisMateriasView;
+import com.ulp.instituto.modelo.Persona;
 import com.ulp.instituto.request.ApiRetrofit;
 import com.ulp.instituto.request.Tabla;
+import com.ulp.instituto.request.Token;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -136,13 +142,85 @@ public class InscripcionesViewModel extends AndroidViewModel {
             materiasMutableLiveData.setValue(resultado);
         }
     }
+    public void pedidoinscripcionmateria(View view, String materia, String ciclolectivo, String estado) {
+
+
+        if (estado.equals("Disponible")) {
+
+            new AlertDialog.Builder(view.getContext())
+                    .setTitle("Pedido de Inscripción")
+                    .setMessage("Está seguro que desea inscribirse en la carrera: " + materia + "?")
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface di, int i) {
+                            // Actualización de estado
+
+
+                            Persona persona;
+
+                            SharedPreferences sp= context.getSharedPreferences("token",0);
+                            //  String token=sp.getString("token","-1");
+                            String token = Token.ObtenerToken(context);
+
+                            Call<String> tokenPromesa = ApiRetrofit.getServiceInstituto().pedidoInscripcionMaterias(token, materia, estado, ciclolectivo);
+                            tokenPromesa.enqueue(new Callback<String>() {
+                                @Override
+                                public void onResponse(Call<String> call, Response<String> response) {
+                                    if (response.isSuccessful()) {
+
+                                        // Persona persona = response.body();
 
 
 
 
+                                        // dentro de un callback usar postvalue y no setvalue
+
+                                    } else {
+                                        Log.d("salida", "persona sin respuesta");
+
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<String> call, Throwable t) {
+                                    Log.d("salida ", t.getMessage());
+
+                                }
+                            });
+
+                        }
 
 
+                    })
+
+                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface di, int i) {
+                            //Navigation.findNavController(view).navigate(R.id.nav_inicio);
+                        }
+                    }).show();
+
+        } else {
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+            builder.setMessage("No es posible inscribirse en una carrera que no esté disponible.")
+                    .setCancelable(false)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            //do things
+                        }
+                    });
+            AlertDialog alert = builder.create();
+            alert.show();
+
+
+        }
+    }
 }
+
+
+
+;
 
 
 

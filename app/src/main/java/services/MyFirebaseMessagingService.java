@@ -2,6 +2,7 @@ package services;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
@@ -14,7 +15,17 @@ import com.google.firebase.iid.internal.FirebaseInstanceIdInternal;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.ulp.instituto.MainActivity;
+import com.ulp.instituto.Principal;
 import com.ulp.instituto.R;
+import com.ulp.instituto.login.Login;
+import com.ulp.instituto.modelo.Persona;
+import com.ulp.instituto.request.ApiRetrofit;
+import com.ulp.instituto.request.Token;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -22,6 +33,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         // ...
+
 
 
 
@@ -45,18 +57,28 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         if (remoteMessage.getNotification() != null) {
             Looper.prepare();
 
+                    AlertDialog.Builder builder = new AlertDialog.Builder(Principal.myActividad)
+                            .setTitle("Notificación: ")
+                            .setMessage(remoteMessage.getNotification().getBody())
+                            .setCancelable(false)
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                                    //do things
+                                }
+                            });
+                    AlertDialog alert = builder.create();
+                    alert.show();
 
-            Toast.makeText(this, "Notificacion " + remoteMessage.getNotification().getBody(), Toast.LENGTH_LONG).show();
+        //   Toast.makeText(this, "Notificacion " + remoteMessage.getNotification().getBody(), Toast.LENGTH_LONG).show();
             Looper.loop();
-
-            Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
         }
 
         // Also if you intend on generating your own notifications as a result of a received FCM
         // message, here is where that should be initiated. See sendNotification method below.
     }
 
-//    @Override
+
+    //    @Override
     public void onTokenRefresh() {
         // Get updated InstanceID token.
 

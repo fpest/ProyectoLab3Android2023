@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.ulp.instituto.modelo.Clave;
 import com.ulp.instituto.modelo.Materia;
+import com.ulp.instituto.modelo.MisCarrerasView;
 import com.ulp.instituto.modelo.MisCuentasView;
 import com.ulp.instituto.modelo.MisMateriasView;
 import com.ulp.instituto.modelo.MisNotasView;
@@ -66,6 +67,9 @@ public class ApiRetrofit {
         @GET("Materias/listarMaterias")
         Call<List<MisMateriasView>> listarMaterias (@Header("Authorization") String token);
 
+        @GET("Carreras/listarCarreras")
+        Call<List<MisCarrerasView>> listarCarreras (@Header("Authorization") String token);
+
         @GET("Personas/obtenerPerfil")
         Call<Persona> obtenerPerfil (@Header("Authorization") String token);
 
@@ -83,6 +87,17 @@ public class ApiRetrofit {
         @GET("Personas/actualizarTokenFirebase")
         Call<String> actualizarTokenFirebase (@Header("Authorization") String token,  @Query("tokenFirebase") String tokenFirebase);
 
+
+        @GET("Personas/preparadoBase")
+        Call<String> preparadoBase (@Header("Authorization") String token);
+
+
+        @POST("Carreras/pedidoInscripcion")
+        Call<String> pedidoInscripcion (@Header("Authorization") String token,@Query("carrera") String carrera, @Query("estado") String estado, @Query("ciclolectivo") String ciclolectivo);
+
+
+        @POST("Materias/pedidoInscripcionMaterias")
+        Call<String> pedidoInscripcionMaterias (@Header("Authorization") String token,@Query("materia") String materia, @Query("estado") String estado, @Query("ciclolectivo") String ciclolectivo);
 
 
         /*para hacerlo FromForm

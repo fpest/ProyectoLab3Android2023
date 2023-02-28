@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondo_perfil"
-    tools:context=".ui.inscripciones.InscripcionesFragment">
+    tools:context=".ui.carreras.CarrerasFragment">
 
 
     <TextView
@@ -15,7 +15,7 @@
         android:layout_marginTop="32dp"
         android:textStyle="bold"
         android:textColor="@color/black"
-        android:text="Mis Materias"
+        android:text="Mis Carreras"
         android:textSize="22dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -275,7 +275,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Materias Disponibles para Inscribirse"
+        android:text="Carreras Disponibles para Inscribirse"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:textSize="22dp"

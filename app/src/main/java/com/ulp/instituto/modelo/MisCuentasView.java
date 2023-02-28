@@ -7,6 +7,7 @@ public class MisCuentasView implements Serializable {
     private String descripcion;
     private double monto;
     private String fechahora;
+    private int id;
 
 
 
@@ -16,13 +17,14 @@ public class MisCuentasView implements Serializable {
 
     public MisCuentasView(String descripcion,
                           double monto,
-                          String fechahora
+                          String fechahora,
+                          int id
 
                          ) {
         this.descripcion = descripcion;
         this.monto = monto;
         this.fechahora = fechahora;
-
+        this.id = id;
     }
 
     public String getDescripcion() {
@@ -37,7 +39,7 @@ public class MisCuentasView implements Serializable {
         return monto;
     }
 
-    public void setMonto(double nota) {
+    public void setMonto(double monto) {
         this.monto = monto;
     }
 
@@ -47,5 +49,13 @@ public class MisCuentasView implements Serializable {
 
     public void setFechahora(String fechahora) {
         this.fechahora = fechahora;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

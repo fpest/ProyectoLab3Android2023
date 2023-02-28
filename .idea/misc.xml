@@ -6,7 +6,10 @@
         <entry key="..\:/ProyectoLab3/ProyectoPropioLab3/Android/de cero/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/ProyectoLab3/ProyectoPropioLab3/Android/de cero/app/src/main/res/layout/activity_principal.xml" value="0.1" />
         <entry key="..\:/ProyectoLab3/ProyectoPropioLab3/Android/de cero/app/src/main/res/layout/content_principal.xml" value="0.17074275362318841" />
+        <entry key="..\:/ProyectoLab3/ProyectoPropioLab3/Proyecto Final Lab3/Android/app/src/main/res/drawable-v24/bookmark_added-48px.xml" value="0.1" />
         <entry key="..\:/ProyectoLab3/ProyectoPropioLab3/Proyecto Final Lab3/Android/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/ProyectoLab3/ProyectoPropioLab3/Proyecto Final Lab3/Android/app/src/main/res/drawable/background_replace-48px.xml" value="0.1" />
+        <entry key="..\:/ProyectoLab3/ProyectoPropioLab3/Proyecto Final Lab3/Android/app/src/main/res/drawable/chrome_reader_mode-48px.xml" value="0.1" />
         <entry key="..\:/ProyectoLab3/ProyectoPropioLab3/Proyecto Final Lab3/Android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/ProyectoLab3/ProyectoPropioLab3/Proyecto Final Lab3/Android/app/src/main/res/drawable/ic_menu_camera.xml" value="0.1" />
         <entry key="..\:/ProyectoLab3/ProyectoPropioLab3/Proyecto Final Lab3/Android/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.1" />
@@ -16,10 +19,11 @@
         <entry key="..\:/ProyectoLab3/ProyectoPropioLab3/Proyecto Final Lab3/Android/app/src/main/res/layout/content_principal.xml" value="0.44243792325056436" />
         <entry key="..\:/ProyectoLab3/ProyectoPropioLab3/Proyecto Final Lab3/Android/app/src/main/res/layout/fragment_calificaciones.xml" value="0.1" />
         <entry key="..\:/ProyectoLab3/ProyectoPropioLab3/Proyecto Final Lab3/Android/app/src/main/res/layout/fragment_cambio_clave.xml" value="0.1" />
+        <entry key="..\:/ProyectoLab3/ProyectoPropioLab3/Proyecto Final Lab3/Android/app/src/main/res/layout/fragment_carreras.xml" value="0.1" />
         <entry key="..\:/ProyectoLab3/ProyectoPropioLab3/Proyecto Final Lab3/Android/app/src/main/res/layout/fragment_home.xml" value="0.67" />
         <entry key="..\:/ProyectoLab3/ProyectoPropioLab3/Proyecto Final Lab3/Android/app/src/main/res/layout/fragment_inscripciones.xml" value="0.26582278481012656" />
         <entry key="..\:/ProyectoLab3/ProyectoPropioLab3/Proyecto Final Lab3/Android/app/src/main/res/layout/fragment_logout.xml" value="0.1" />
-        <entry key="..\:/ProyectoLab3/ProyectoPropioLab3/Proyecto Final Lab3/Android/app/src/main/res/layout/fragment_pagos.xml" value="0.25" />
+        <entry key="..\:/ProyectoLab3/ProyectoPropioLab3/Proyecto Final Lab3/Android/app/src/main/res/layout/fragment_pagos.xml" value="0.1" />
         <entry key="..\:/ProyectoLab3/ProyectoPropioLab3/Proyecto Final Lab3/Android/app/src/main/res/layout/fragment_perfil.xml" value="0.5" />
         <entry key="..\:/ProyectoLab3/ProyectoPropioLab3/Proyecto Final Lab3/Android/app/src/main/res/layout/nav_header_principal.xml" value="0.1" />
         <entry key="..\:/ProyectoLab3/ProyectoPropioLab3/Proyecto Final Lab3/Android/app/src/main/res/layout/row_table_inscripciones.xml" value="0.22" />

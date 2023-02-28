@@ -1,45 +1,50 @@
-package com.ulp.instituto.ui.inscripciones;
+package com.ulp.instituto.ui.carreras;
 
-import android.content.Context;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.GridLayoutManager;
-
+import com.google.android.gms.common.internal.Objects;
 import com.ulp.instituto.R;
+import com.ulp.instituto.databinding.FragmentCarrerasBinding;
 import com.ulp.instituto.databinding.FragmentInscripcionesBinding;
+import com.ulp.instituto.modelo.Carrera;
 import com.ulp.instituto.modelo.Materia;
-
-import org.w3c.dom.Text;
+import com.ulp.instituto.ui.inscripciones.InscripcionesViewModel;
 
 import java.util.List;
 
-public class InscripcionesFragment extends Fragment {
+public class CarrerasFragment extends Fragment {
 
 
-
-    private FragmentInscripcionesBinding binding;
-    List<Materia> listaMaterias;
+    private FragmentCarrerasBinding binding;
+    List<Carrera> listaCarreras;
     private String matriz[][] = new String[100][100];
+    CarrerasViewModel mInmViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        InscripcionesViewModel mInmViewModel =
-                new ViewModelProvider(this).get(InscripcionesViewModel.class);
+        CarrerasViewModel mInmViewModel =
+                new ViewModelProvider(this).get(CarrerasViewModel.class);
 
-        binding = FragmentInscripcionesBinding.inflate(inflater, container, false);
+        binding = FragmentCarrerasBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        mInmViewModel.getMateriasMutableLiveData().observe(getViewLifecycleOwner(), new Observer<String[][]>() {
+        mInmViewModel.getCarrerasMutableLiveData().observe(getViewLifecycleOwner(), new Observer<String[][]>() {
 
             @Override
             public void onChanged(String[][] matriz) {
@@ -76,84 +81,82 @@ public class InscripcionesFragment extends Fragment {
             }
         });
 
-
         // Click en tabla para pedir inscripción
         binding.tv11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mInmViewModel.pedidoinscripcionmateria(v, binding.tv12.getText().toString(), binding.tv11.getText().toString(), binding.tv13.getText().toString());
+                mInmViewModel.pedidoinscripcion(v, binding.tv12.getText().toString(), binding.tv11.getText().toString(), binding.tv13.getText().toString());
             }
         });
         binding.tv12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mInmViewModel.pedidoinscripcionmateria(v, binding.tv12.getText().toString(), binding.tv11.getText().toString(), binding.tv13.getText().toString());
+                mInmViewModel.pedidoinscripcion(v, binding.tv12.getText().toString(), binding.tv11.getText().toString(), binding.tv13.getText().toString());
             }
         });
         binding.tv13.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mInmViewModel.pedidoinscripcionmateria(v, binding.tv12.getText().toString(), binding.tv11.getText().toString(), binding.tv13.getText().toString());
+                mInmViewModel.pedidoinscripcion(v, binding.tv12.getText().toString(), binding.tv11.getText().toString(), binding.tv13.getText().toString());
             }
         });
 
         binding.tv21.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mInmViewModel.pedidoinscripcionmateria(v, binding.tv22.getText().toString(), binding.tv21.getText().toString(), binding.tv23.getText().toString());
+                mInmViewModel.pedidoinscripcion(v, binding.tv22.getText().toString(), binding.tv21.getText().toString(), binding.tv23.getText().toString());
             }
         });
         binding.tv22.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mInmViewModel.pedidoinscripcionmateria(v, binding.tv22.getText().toString(), binding.tv21.getText().toString(), binding.tv23.getText().toString());
+                mInmViewModel.pedidoinscripcion(v, binding.tv22.getText().toString(), binding.tv21.getText().toString(), binding.tv23.getText().toString());
             }
         });
         binding.tv23.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mInmViewModel.pedidoinscripcionmateria(v, binding.tv22.getText().toString(), binding.tv21.getText().toString(), binding.tv23.getText().toString());
+                mInmViewModel.pedidoinscripcion(v, binding.tv22.getText().toString(), binding.tv21.getText().toString(), binding.tv23.getText().toString());
             }
         });
 
         binding.tv31.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mInmViewModel.pedidoinscripcionmateria(v, binding.tv32.getText().toString(), binding.tv31.getText().toString(), binding.tv33.getText().toString());
+                mInmViewModel.pedidoinscripcion(v, binding.tv32.getText().toString(), binding.tv31.getText().toString(), binding.tv33.getText().toString());
             }
         });
         binding.tv32.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mInmViewModel.pedidoinscripcionmateria(v, binding.tv32.getText().toString(), binding.tv31.getText().toString(), binding.tv33.getText().toString());
+                mInmViewModel.pedidoinscripcion(v, binding.tv32.getText().toString(), binding.tv31.getText().toString(), binding.tv33.getText().toString());
             }
         });
         binding.tv33.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mInmViewModel.pedidoinscripcionmateria(v, binding.tv32.getText().toString(), binding.tv31.getText().toString(), binding.tv33.getText().toString());
+                mInmViewModel.pedidoinscripcion(v, binding.tv32.getText().toString(), binding.tv31.getText().toString(), binding.tv33.getText().toString());
             }
         });
 
         binding.tv41.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mInmViewModel.pedidoinscripcionmateria(v, binding.tv42.getText().toString(), binding.tv41.getText().toString(), binding.tv43.getText().toString());
+                mInmViewModel.pedidoinscripcion(v, binding.tv42.getText().toString(), binding.tv41.getText().toString(), binding.tv43.getText().toString());
             }
         });
         binding.tv42.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mInmViewModel.pedidoinscripcionmateria(v, binding.tv42.getText().toString(), binding.tv41.getText().toString(), binding.tv43.getText().toString());
+                mInmViewModel.pedidoinscripcion(v, binding.tv42.getText().toString(), binding.tv41.getText().toString(), binding.tv43.getText().toString());
             }
         });
         binding.tv43.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mInmViewModel.pedidoinscripcionmateria(v, binding.tv42.getText().toString(), binding.tv41.getText().toString(), binding.tv43.getText().toString());
+                mInmViewModel.pedidoinscripcion(v, binding.tv42.getText().toString(), binding.tv41.getText().toString(), binding.tv43.getText().toString());
             }
         });
-
 
 
 
@@ -170,7 +173,7 @@ public class InscripcionesFragment extends Fragment {
 
     public void inicializarVista(View view, LayoutInflater layoutInflater, String[][] matriz) {
 
-      this.matriz = matriz ;
+        this.matriz = matriz ;
 
         binding.tv111.setText(matriz[0][0]);
         binding.tv112.setText(matriz[0][1]);
@@ -198,16 +201,6 @@ public class InscripcionesFragment extends Fragment {
         binding.tv42.setText(matriz[7][1]);
         binding.tv43.setText(matriz[7][2]);
 
-
-
-
-
-
-
     }
-
-
-
-
 
 }

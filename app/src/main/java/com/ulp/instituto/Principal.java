@@ -4,6 +4,7 @@ import static android.content.ContentValues.TAG;
 
 import static com.ulp.instituto.request.Token.ObtenerToken;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -48,11 +49,13 @@ public class Principal extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityPrincipalBinding binding;
     private ApiRetrofit api;
+    public static Activity myActividad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        myActividad=this;
 
         Task<String> token = FirebaseMessaging.getInstance().getToken();
         token.addOnSuccessListener(new OnSuccessListener<String>() {
@@ -87,6 +90,36 @@ public class Principal extends AppCompatActivity {
 
             }
         });
+
+        // Preparamos Base Carreras y Materias
+        String token2 = ObtenerToken(getApplication());
+        Call<String> tokenPromesa = ApiRetrofit.getServiceInstituto().preparadoBase(token2);
+        tokenPromesa.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+
+                if (response.isSuccessful()) {
+
+                    Log.d("salida", "Preparado ok");
+                } else {
+                    Log.d("salida", "Preparado sin respuesta");
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                Log.d("salida ", t.getMessage());
+
+            }
+        });
+
+    // Hasta aqui
+
+
+
+
+
 
         binding = ActivityPrincipalBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
