@@ -63,15 +63,21 @@ public class PagosViewModel extends AndroidViewModel {
                     List<MisCuentasView> notas = response.body();
                     int i = 0;
                     int j = 0;
+                    double saldo = 0;
 
                     for (MisCuentasView object : notas) {
-
+                        saldo = saldo + object.getMonto();
                         matriz[i][0] = String.valueOf(object.getFechahora());
                         matriz[i][1] = String.valueOf(object.getDescripcion());
                         matriz[i][2] = String.valueOf(object.getMonto());
                         i++;
 
                     }
+                        matriz[i][0]= "";
+                        matriz[i][1]= "Saldo";
+                        matriz[i][2]= String.valueOf(saldo);
+                        i++;
+
                     max1 = i;
 
                     int t1 = 0;

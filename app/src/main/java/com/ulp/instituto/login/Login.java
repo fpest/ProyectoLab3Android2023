@@ -83,10 +83,6 @@ public class Login extends AppCompatActivity {
         etPassword.setText("123" );
 
         tvError = findViewById(R.id.tvError);
-        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        mAccelerometer = mSensorManager
-                .getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        mDetectarAgitar = new DetectarAgitar();
 
 
 
@@ -116,38 +112,11 @@ public class Login extends AppCompatActivity {
 
 
 
-        arranqueagitacion();
-
-    }
-
-    private void solicitarPermisoLLamada() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
-                && checkSelfPermission(Manifest.permission.CALL_PHONE)
-                != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[]{Manifest.permission.CALL_PHONE}, 1000);
-        }
-
-    }
-
-        private void solicitarPermisoUbicacion() {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
-                    && checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
-                    != PackageManager.PERMISSION_GRANTED) {
-                requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 1000);
-            }
 
 
 
     }
-    private void arranqueagitacion() {
-        mDetectarAgitar.setOnShakeListener(new DetectarAgitar.OnShakeListener() {
-            @Override
-            public void onShake(int count) {
-                Intent i = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "444444"));
-                startActivity(i);
-            }
-        });
-    }
+
 
 
 }

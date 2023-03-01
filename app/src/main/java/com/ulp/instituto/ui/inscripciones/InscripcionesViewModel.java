@@ -2,6 +2,7 @@ package com.ulp.instituto.ui.inscripciones;
 
 import static com.ulp.instituto.request.Token.ObtenerToken;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Application;
 import android.content.Context;
@@ -65,12 +66,30 @@ public class InscripcionesViewModel extends AndroidViewModel {
 
         String token = ObtenerToken(context);
 
-        Call<List<MisMateriasView>> tokenPromesa = ApiRetrofit.getServiceInstituto().listarMaterias(token);
-        tokenPromesa.enqueue(new Callback<List<MisMateriasView>>() {
+
+
+        Call<List<MisMateriasView>> tokenPromesa1 = ApiRetrofit.getServiceInstituto().listarMaterias(token);
+        tokenPromesa1.enqueue(new Callback<List<MisMateriasView>>() {
             @Override
             public void onResponse(Call<List<MisMateriasView>> call, Response<List<MisMateriasView>> response) {
 
                 if (response.isSuccessful()) {
+
+                    for(int b=0; b<8 ; b++) {
+                        matrizfinal[b][0] = "";
+                        matrizfinal[b][1] = "";
+                        matrizfinal[b][2] = "";
+
+                        matriz1[b][0] = "";
+                        matriz1[b][1] = "";
+                        matriz1[b][2] = "";
+
+                        matriz2[b][0] = "";
+                        matriz2[b][1] = "";
+                        matriz2[b][2] = "";
+
+                    }
+
 
                     List<MisMateriasView> materias = response.body();
                     int i = 0;
@@ -216,6 +235,38 @@ public class InscripcionesViewModel extends AndroidViewModel {
 
         }
     }
+
+
+    public void prepararbase(Activity actividad){
+
+        String token2 = ObtenerToken(actividad);
+        Call<String> tokenPromesa = ApiRetrofit.getServiceInstituto().preparadoBase(token2);
+        tokenPromesa.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+
+                if (response.isSuccessful()) {
+
+                    Log.d("salida", "Preparado ok");
+                } else {
+                    Log.d("salida", "Preparado sin respuesta");
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                Log.d("salida ", t.getMessage());
+
+            }
+        });
+
+
+
+
+    }
+
+
 }
 
 

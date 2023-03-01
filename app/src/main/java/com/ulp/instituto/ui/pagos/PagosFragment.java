@@ -1,5 +1,6 @@
 package com.ulp.instituto.ui.pagos;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +27,8 @@ public class PagosFragment extends Fragment {
     private FragmentPagosBinding binding;
     List<Registronotas> listaMaterias;
     private String matriz[][] = new String[100][100];
+
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {

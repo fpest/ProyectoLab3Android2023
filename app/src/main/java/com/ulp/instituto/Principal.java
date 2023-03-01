@@ -92,6 +92,7 @@ public class Principal extends AppCompatActivity {
         });
 
         // Preparamos Base Carreras y Materias
+
         String token2 = ObtenerToken(getApplication());
         Call<String> tokenPromesa = ApiRetrofit.getServiceInstituto().preparadoBase(token2);
         tokenPromesa.enqueue(new Callback<String>() {

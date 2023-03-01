@@ -1,7 +1,10 @@
 package com.ulp.instituto.ui.inscripciones;
 
+import static com.ulp.instituto.request.Token.ObtenerToken;
+
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +15,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -19,10 +23,15 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import com.ulp.instituto.R;
 import com.ulp.instituto.databinding.FragmentInscripcionesBinding;
 import com.ulp.instituto.modelo.Materia;
+import com.ulp.instituto.request.ApiRetrofit;
 
 import org.w3c.dom.Text;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class InscripcionesFragment extends Fragment {
 
@@ -31,6 +40,43 @@ public class InscripcionesFragment extends Fragment {
     private FragmentInscripcionesBinding binding;
     List<Materia> listaMaterias;
     private String matriz[][] = new String[100][100];
+
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        binding.tv11.setText("");
+        binding.tv12.setText("");
+        binding.tv13.setText("");
+        binding.tv21.setText("");
+        binding.tv22.setText("");
+        binding.tv23.setText("");
+        binding.tv31.setText("");
+        binding.tv32.setText("");
+        binding.tv33.setText("");
+        binding.tv41.setText("");
+        binding.tv42.setText("");
+        binding.tv43.setText("");
+
+        for(int b=0; b<8 ; b++) {
+            matriz[b][0] = "";
+            matriz[b][1] = "";
+            matriz[b][2] = "";
+
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        InscripcionesViewModel inscripcionesViewModel =
+                new ViewModelProvider(this).get(InscripcionesViewModel.class);
+
+        inscripcionesViewModel.prepararbase(getActivity());
+
+
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {

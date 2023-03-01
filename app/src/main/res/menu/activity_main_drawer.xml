@@ -6,31 +6,31 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_inscripciones"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/materia"
             android:title="Materias" />
         <item
             android:id="@+id/carrerasFragment"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/materia"
             android:title="Carreras" />
 
         <item
             android:id="@+id/nav_calificaciones"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/notas"
             android:title="Calificaciones" />
 
         <item
             android:id="@+id/nav_pagos"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/pago"
             android:title="Pagos" />
 
         <item
             android:id="@+id/nav_perfil"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/hombre"
             android:title="Perfil" />
 
         <item
             android:id="@+id/nav_logout"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/logout"
             android:title="Logout" />
 
     </group>

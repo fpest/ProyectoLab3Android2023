@@ -42,7 +42,7 @@ public class CambioClave extends Fragment {
 
             @Override
             public void onChanged(Clave clave) {
-                Navigation.findNavController(root).navigate(R.id.nav_perfil);
+                Navigation.findNavController(root).navigate(R.id.nav_inscripciones);
             }
 
         });
